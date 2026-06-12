@@ -17,24 +17,30 @@
         <style>
             /* ── Tokens ── */
             :root {
-                --bg:           #0a0a0a;
-                --bg-card:      #111111;
-                --bg-surface:   #161616;
-                --border:       #242424;
-                --border-hi:    #383838;
-                --accent:       #6366f1;
-                --text-1:       #ebebeb;
-                --text-2:       #717171;
-                --text-3:       #3f3f3f;
-                --tag-bg:       #181818;
-                --tag-border:   #2a2a2a;
-                --tag-text:     #8f8f8f;
+                --bg: #0a0a0a;
+                --bg-card: #111111;
+                --bg-surface: #161616;
+                --border: #242424;
+                --border-hi: #383838;
+                --accent: #6366f1;
+                --text-1: #ebebeb;
+                --text-2: #717171;
+                --text-3: #3f3f3f;
+                --tag-bg: #181818;
+                --tag-border: #2a2a2a;
+                --tag-text: #8f8f8f;
             }
 
             *,
             *::before,
-            *::after { box-sizing: border-box; margin: 0; padding: 0; }
-            html { scroll-behavior: smooth; }
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
 
             body {
                 background: var(--bg);
@@ -45,11 +51,20 @@
             }
 
             /* ── Scrollbar ── */
-            ::-webkit-scrollbar { width: 4px; }
-            ::-webkit-scrollbar-track { background: var(--bg); }
-            ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+            ::-webkit-scrollbar-track {
+                background: var(--bg);
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #2a2a2a;
+                border-radius: 2px;
+            }
 
-            .mono { font-family: "JetBrains Mono", "Courier New", monospace; }
+            .mono {
+                font-family: "JetBrains Mono", "Courier New", monospace;
+            }
 
             /* ── Nav ── */
             .nav-bar {
@@ -65,7 +80,9 @@
                 text-decoration: none;
                 transition: color 0.12s;
             }
-            .nav-link:hover { color: var(--text-1); }
+            .nav-link:hover {
+                color: var(--text-1);
+            }
 
             /* ── Hero ── */
             .hero-grid {
@@ -76,7 +93,9 @@
             }
             .hero-veil {
                 position: absolute;
-                bottom: 0; left: 0; right: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
                 height: 50%;
                 background: linear-gradient(to bottom, transparent, var(--bg));
                 pointer-events: none;
@@ -100,7 +119,9 @@
                 transition: background 0.12s;
                 white-space: nowrap;
             }
-            .btn-primary:hover { background: #4f52d4; }
+            .btn-primary:hover {
+                background: #4f52d4;
+            }
 
             .btn-ghost {
                 display: inline-flex;
@@ -116,7 +137,9 @@
                 text-decoration: none;
                 border: 1px solid var(--border-hi);
                 cursor: pointer;
-                transition: background 0.12s, border-color 0.12s;
+                transition:
+                    background 0.12s,
+                    border-color 0.12s;
                 white-space: nowrap;
             }
             .btn-ghost:hover {
@@ -131,7 +154,9 @@
                 border-radius: 6px;
                 transition: border-color 0.15s;
             }
-            .card:hover { border-color: var(--border-hi); }
+            .card:hover {
+                border-color: var(--border-hi);
+            }
 
             /* ── Section label ── */
             .label {
@@ -177,7 +202,9 @@
                 border: 1px solid var(--border);
                 font-size: 0.84rem;
                 color: var(--text-2);
-                transition: border-color 0.12s, color 0.12s;
+                transition:
+                    border-color 0.12s,
+                    color 0.12s;
             }
             .skill-pill:hover {
                 border-color: var(--border-hi);
@@ -220,8 +247,13 @@
                 padding: 12px 0;
                 border-bottom: 1px solid var(--border);
             }
-            .int-row:first-of-type { padding-top: 0; }
-            .int-row:last-of-type  { border-bottom: none; padding-bottom: 0; }
+            .int-row:first-of-type {
+                padding-top: 0;
+            }
+            .int-row:last-of-type {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
 
             /* ── Stat divider ── */
             .div-stat {
@@ -235,50 +267,111 @@
             .fade {
                 opacity: 0;
                 transform: translateY(10px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
+                transition:
+                    opacity 0.4s ease,
+                    transform 0.4s ease;
             }
-            .fade.on { opacity: 1; transform: none; }
+            .fade.on {
+                opacity: 1;
+                transform: none;
+            }
 
             /* ── LED blink ── */
             @keyframes led {
-                0%,  49% { background: #c73232; }
-                50%, 100% { background: #2040c8; }
+                0%,
+                49% {
+                    background: #c73232;
+                }
+                50%,
+                100% {
+                    background: #2040c8;
+                }
             }
-            .led { animation: led 1s step-end infinite; }
+            .led {
+                animation: led 1s step-end infinite;
+            }
 
             /* ── Responsive ── */
             @media (max-width: 900px) {
-                .stack-cols { grid-template-columns: 1fr 1fr !important; }
+                .stack-cols {
+                    grid-template-columns: 1fr 1fr !important;
+                }
             }
             @media (max-width: 680px) {
                 .two-col,
                 .stack-cols,
                 .about-cols,
-                .freecad-cols { grid-template-columns: 1fr !important; }
-                .stat-row      { gap: 20px !important; }
-                .div-stat      { display: none; }
-                .spotify-cols  { grid-template-columns: 1fr !important; }
-                .spotify-vis   { display: none; }
+                .freecad-cols {
+                    grid-template-columns: 1fr !important;
+                }
+                .stat-row {
+                    gap: 20px !important;
+                }
+                .div-stat {
+                    display: none;
+                }
+                .spotify-cols {
+                    grid-template-columns: 1fr !important;
+                }
+                .spotify-vis {
+                    display: none;
+                }
             }
         </style>
     </head>
     <body>
-
         <!-- NAV -->
-        <header class="nav-bar" style="position:fixed;top:0;left:0;right:0;z-index:50">
-            <div style="max-width:1140px;margin:0 auto;padding:0 32px;height:52px;display:flex;align-items:center;justify-content:space-between">
-                <a href="#hero" style="text-decoration:none">
-                    <span class="mono" style="font-size:0.875rem;font-weight:600;color:var(--text-1)">stas.kornuta</span>
+        <header
+            class="nav-bar"
+            style="position: fixed; top: 0; left: 0; right: 0; z-index: 50"
+        >
+            <div
+                style="
+                    max-width: 1140px;
+                    margin: 0 auto;
+                    padding: 0 32px;
+                    height: 52px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                "
+            >
+                <a href="#hero" style="text-decoration: none">
+                    <span
+                        class="mono"
+                        style="
+                            font-size: 0.875rem;
+                            font-weight: 600;
+                            color: var(--text-1);
+                        "
+                        >stas.kornuta</span
+                    >
                 </a>
-                <nav style="display:flex;align-items:center;gap:32px">
+                <nav style="display: flex; align-items: center; gap: 32px">
                     <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#stack"    class="nav-link">Stack</a>
-                    <a href="#about"    class="nav-link">About</a>
-                    <a href="#contact"  class="nav-link">Contact</a>
-                    <a href="https://github.com/skornuta" target="_blank" rel="noopener"
-                       class="nav-link" style="display:inline-flex;align-items:center;gap:5px">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    <a href="#stack" class="nav-link">Stack</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a
+                        href="https://github.com/skornuta"
+                        target="_blank"
+                        rel="noopener"
+                        class="nav-link"
+                        style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 5px;
+                        "
+                    >
+                        <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+                            />
                         </svg>
                         GitHub
                     </a>
@@ -286,82 +379,256 @@
             </div>
         </header>
 
-
         <!-- HERO -->
-        <section id="hero" class="hero-grid"
-                 style="position:relative;min-height:100vh;display:flex;align-items:center;padding-top:52px;overflow:hidden">
+        <section
+            id="hero"
+            class="hero-grid"
+            style="
+                position: relative;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                padding-top: 52px;
+                overflow: hidden;
+            "
+        >
             <div class="hero-veil"></div>
-            <div style="max-width:1140px;margin:0 auto;padding:96px 32px 112px;position:relative;z-index:1;width:100%">
-
-                <p class="label" style="margin-bottom:20px">San Jose, CA — Maker</p>
-
-                <h1 class="mono"
-                    style="font-size:clamp(1.9rem,4.8vw,3.4rem);font-weight:700;line-height:1.18;color:var(--text-1);margin-bottom:22px;max-width:680px">
-                    Embedded systems,<br>3D design, and code.
-                </h1>
-
-                <p style="font-size:0.975rem;line-height:1.8;color:var(--text-2);max-width:480px;margin-bottom:40px">
-                    Building hardware end-to-end — firmware in C/C++, enclosures in FreeCAD, and web integrations where needed. Based in San Jose.
+            <div
+                style="
+                    max-width: 1140px;
+                    margin: 0 auto;
+                    padding: 96px 32px 112px;
+                    position: relative;
+                    z-index: 1;
+                    width: 100%;
+                "
+            >
+                <p class="label" style="margin-bottom: 20px">
+                    San Jose, CA — Maker
                 </p>
 
-                <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:72px">
+                <h1
+                    class="mono"
+                    style="
+                        font-size: clamp(1.9rem, 4.8vw, 3.4rem);
+                        font-weight: 700;
+                        line-height: 1.18;
+                        color: var(--text-1);
+                        margin-bottom: 22px;
+                        max-width: 680px;
+                    "
+                >
+                    Embedded systems,<br />3D design, and code.
+                </h1>
+
+                <p
+                    style="
+                        font-size: 0.975rem;
+                        line-height: 1.8;
+                        color: var(--text-2);
+                        max-width: 480px;
+                        margin-bottom: 40px;
+                    "
+                >
+                    Building hardware end-to-end — firmware in C/C++, enclosures
+                    in FreeCAD, and web integrations where needed. Based in San
+                    Jose.
+                </p>
+
+                <div
+                    style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 12px;
+                        margin-bottom: 72px;
+                    "
+                >
                     <a href="#projects" class="btn-primary">View Projects →</a>
-                    <a href="#contact"  class="btn-ghost">Get in Touch</a>
+                    <a href="#contact" class="btn-ghost">Get in Touch</a>
                 </div>
 
-                <div class="stat-row"
-                     style="display:flex;align-items:center;flex-wrap:wrap;gap:32px;padding-top:32px;border-top:1px solid var(--border)">
+                <div
+                    class="stat-row"
+                    style="
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 32px;
+                        padding-top: 32px;
+                        border-top: 1px solid var(--border);
+                    "
+                >
                     <div>
-                        <p class="mono" style="font-size:0.67rem;color:var(--text-3);margin-bottom:6px">MCU</p>
-                        <p class="mono" style="font-size:0.975rem;font-weight:600;color:var(--text-1)">ESP32</p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.67rem;
+                                color: var(--text-3);
+                                margin-bottom: 6px;
+                            "
+                        >
+                            MCU
+                        </p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.975rem;
+                                font-weight: 600;
+                                color: var(--text-1);
+                            "
+                        >
+                            ESP32
+                        </p>
                     </div>
                     <div class="div-stat"></div>
                     <div>
-                        <p class="mono" style="font-size:0.67rem;color:var(--text-3);margin-bottom:6px">Firmware</p>
-                        <p class="mono" style="font-size:0.975rem;font-weight:600;color:var(--text-1)">C / C++</p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.67rem;
+                                color: var(--text-3);
+                                margin-bottom: 6px;
+                            "
+                        >
+                            Firmware
+                        </p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.975rem;
+                                font-weight: 600;
+                                color: var(--text-1);
+                            "
+                        >
+                            C / C++
+                        </p>
                     </div>
                     <div class="div-stat"></div>
                     <div>
-                        <p class="mono" style="font-size:0.67rem;color:var(--text-3);margin-bottom:6px">Build</p>
-                        <p class="mono" style="font-size:0.975rem;font-weight:600;color:var(--text-1)">PlatformIO</p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.67rem;
+                                color: var(--text-3);
+                                margin-bottom: 6px;
+                            "
+                        >
+                            Build
+                        </p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.975rem;
+                                font-weight: 600;
+                                color: var(--text-1);
+                            "
+                        >
+                            PlatformIO
+                        </p>
                     </div>
                     <div class="div-stat"></div>
                     <div>
-                        <p class="mono" style="font-size:0.67rem;color:var(--text-3);margin-bottom:6px">CAD</p>
-                        <p class="mono" style="font-size:0.975rem;font-weight:600;color:var(--text-1)">FreeCAD</p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.67rem;
+                                color: var(--text-3);
+                                margin-bottom: 6px;
+                            "
+                        >
+                            CAD
+                        </p>
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.975rem;
+                                font-weight: 600;
+                                color: var(--text-1);
+                            "
+                        >
+                            FreeCAD
+                        </p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-
         <!-- PROJECTS -->
-        <section id="projects" style="padding:120px 0">
-            <div style="max-width:1140px;margin:0 auto;padding:0 32px">
-
-                <div class="fade" style="margin-bottom:56px">
-                    <p class="label" style="margin-bottom:10px">// selected builds</p>
-                    <h2 class="mono" style="font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--text-1)">Projects</h2>
+        <section id="projects" style="padding: 120px 0">
+            <div style="max-width: 1140px; margin: 0 auto; padding: 0 32px">
+                <div class="fade" style="margin-bottom: 56px">
+                    <p class="label" style="margin-bottom: 10px">
+                        // selected builds
+                    </p>
+                    <h2
+                        class="mono"
+                        style="
+                            font-size: clamp(1.5rem, 3vw, 2.1rem);
+                            font-weight: 700;
+                            color: var(--text-1);
+                        "
+                    >
+                        Projects
+                    </h2>
                 </div>
 
-                <div style="display:grid;gap:20px">
-
+                <div style="display: grid; gap: 20px">
                     <!-- Spotify Display -->
-                    <div class="card fade" style="padding:36px 40px">
-                        <div class="spotify-cols"
-                             style="display:grid;grid-template-columns:1fr 200px;gap:32px;align-items:start">
+                    <div class="card fade" style="padding: 36px 40px">
+                        <div
+                            class="spotify-cols"
+                            style="
+                                display: grid;
+                                grid-template-columns: 1fr 200px;
+                                gap: 32px;
+                                align-items: start;
+                            "
+                        >
                             <div>
-                                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px">
-                                    <h3 class="mono" style="font-size:1.05rem;font-weight:700;color:var(--text-1)">
+                                <div
+                                    style="
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 10px;
+                                        flex-wrap: wrap;
+                                        margin-bottom: 16px;
+                                    "
+                                >
+                                    <h3
+                                        class="mono"
+                                        style="
+                                            font-size: 1.05rem;
+                                            font-weight: 700;
+                                            color: var(--text-1);
+                                        "
+                                    >
                                         Spotify Album Art Display
                                     </h3>
                                     <span class="badge-wip">In Progress</span>
                                 </div>
-                                <p style="font-size:0.875rem;line-height:1.8;color:var(--text-2);margin-bottom:20px">
-                                    ESP32-D that fetches the current Spotify track over Wi-Fi and renders album art on a 240&times;240 round GC9A01 SPI display. Handles OAuth2 token refresh and decodes JPEG on-device via TJpg_Decoder and LovyanGFX. Firmware in progress — physical build and enclosure are next.
+                                <p
+                                    style="
+                                        font-size: 0.875rem;
+                                        line-height: 1.8;
+                                        color: var(--text-2);
+                                        margin-bottom: 20px;
+                                    "
+                                >
+                                    ESP32-D that fetches the current Spotify
+                                    track over Wi-Fi and renders album art on a
+                                    240&times;240 round GC9A01 SPI display.
+                                    Handles OAuth2 token refresh and decodes
+                                    JPEG on-device via TJpg_Decoder and
+                                    LovyanGFX. Firmware in progress — physical
+                                    build and enclosure are next.
                                 </p>
-                                <div style="display:flex;flex-wrap:wrap;gap:5px">
+                                <div
+                                    style="
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                        gap: 5px;
+                                    "
+                                >
                                     <span class="tag">ESP32-D</span>
                                     <span class="tag">GC9A01</span>
                                     <span class="tag">SPI</span>
@@ -373,42 +640,110 @@
                                     <span class="tag">C++</span>
                                 </div>
                             </div>
-                            <div class="vis spotify-vis" style="height:200px;padding:24px">
-                                <div style="width:88px;height:88px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border-hi);display:flex;align-items:center;justify-content:center">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--text-3)">
-                                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                            <div
+                                class="vis spotify-vis"
+                                style="height: 200px; padding: 24px"
+                            >
+                                <div
+                                    style="
+                                        width: 88px;
+                                        height: 88px;
+                                        border-radius: 50%;
+                                        background: var(--bg-card);
+                                        border: 1px solid var(--border-hi);
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                    "
+                                >
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="var(--text-3)"
+                                    >
+                                        <path
+                                            d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+                                        />
                                     </svg>
                                 </div>
                                 <p>GC9A01 &middot; 240&times;240</p>
-                                <p style="opacity:0.45">[ add photo here ]</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Two-col: Flipper + LED -->
-                    <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-
+                    <div
+                        class="two-col"
+                        style="
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 20px;
+                        "
+                    >
                         <!-- Flipper32 -->
-                        <div class="card fade" style="padding:32px">
-                            <div class="vis" style="height:132px;margin-bottom:24px;padding:16px">
-                                <div class="mono"
-                                     style="font-size:0.66rem;line-height:2.1;color:var(--text-3);text-align:left;width:100%">
-                                    ESP32 Flipper32 v0.1<br>
-                                    Booting...<br>
-                                    &gt; IR Tools<br>
+                        <div class="card fade" style="padding: 32px">
+                            <div
+                                class="vis"
+                                style="
+                                    height: 132px;
+                                    margin-bottom: 24px;
+                                    padding: 16px;
+                                "
+                            >
+                                <div
+                                    class="mono"
+                                    style="
+                                        font-size: 0.66rem;
+                                        line-height: 2.1;
+                                        color: var(--text-3);
+                                        text-align: left;
+                                        width: 100%;
+                                    "
+                                >
+                                    ESP32 Flipper32 v0.1<br />
+                                    Booting...<br />
+                                    &gt; IR Tools<br />
                                     &gt; Sub-GHz &nbsp;433.92 MHz
                                 </div>
                             </div>
-                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-                                <h3 class="mono" style="font-size:1rem;font-weight:700;color:var(--text-1)">
+                            <div
+                                style="
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    margin-bottom: 12px;
+                                "
+                            >
+                                <h3
+                                    class="mono"
+                                    style="
+                                        font-size: 1rem;
+                                        font-weight: 700;
+                                        color: var(--text-1);
+                                    "
+                                >
                                     ESP32 Multi-Tool
                                 </h3>
                                 <span class="badge-wip">In Progress</span>
                             </div>
-                            <p style="font-size:0.85rem;line-height:1.8;color:var(--text-2);margin-bottom:20px">
-                                Flipper Zero-inspired ESP32 device. 16&times;2 I&sup2;C LCD with a 4-button debounced menu, CC1101 Sub-GHz transceiver (315&ndash;915 MHz) with live RSSI, and an IR receiver. Compile-time flags make each module optional.
+                            <p
+                                style="
+                                    font-size: 0.85rem;
+                                    line-height: 1.8;
+                                    color: var(--text-2);
+                                    margin-bottom: 20px;
+                                "
+                            >
+                                Flipper Zero-inspired ESP32 device. 16&times;2
+                                I&sup2;C LCD with a 4-button debounced menu,
+                                CC1101 Sub-GHz transceiver (315&ndash;915 MHz)
+                                with live RSSI, and an IR receiver. Compile-time
+                                flags make each module optional.
                             </p>
-                            <div style="display:flex;flex-wrap:wrap;gap:5px">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px"
+                            >
                                 <span class="tag">ESP32</span>
                                 <span class="tag">CC1101</span>
                                 <span class="tag">Sub-GHz</span>
@@ -420,27 +755,124 @@
                         </div>
 
                         <!-- WS2812B LED -->
-                        <div class="card fade" style="padding:32px">
-                            <div class="vis" style="height:132px;margin-bottom:24px;padding:16px">
-                                <div style="display:flex;gap:6px;justify-content:center;align-items:center;margin-bottom:10px">
-                                    <div class="led" style="width:15px;height:15px;border-radius:50%"></div>
-                                    <div style="width:15px;height:15px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border)"></div>
-                                    <div style="width:15px;height:15px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border)"></div>
-                                    <div style="width:15px;height:15px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border)"></div>
-                                    <div style="width:15px;height:15px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border)"></div>
-                                    <div style="width:15px;height:15px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border)"></div>
-                                    <div style="width:15px;height:15px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border)"></div>
-                                    <div style="width:15px;height:15px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border)"></div>
+                        <div class="card fade" style="padding: 32px">
+                            <div
+                                class="vis"
+                                style="
+                                    height: 132px;
+                                    margin-bottom: 24px;
+                                    padding: 16px;
+                                "
+                            >
+                                <div
+                                    style="
+                                        display: flex;
+                                        gap: 6px;
+                                        justify-content: center;
+                                        align-items: center;
+                                        margin-bottom: 10px;
+                                    "
+                                >
+                                    <div
+                                        class="led"
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                        "
+                                    ></div>
+                                    <div
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: var(--bg-card);
+                                            border: 1px solid var(--border);
+                                        "
+                                    ></div>
+                                    <div
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: var(--bg-card);
+                                            border: 1px solid var(--border);
+                                        "
+                                    ></div>
+                                    <div
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: var(--bg-card);
+                                            border: 1px solid var(--border);
+                                        "
+                                    ></div>
+                                    <div
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: var(--bg-card);
+                                            border: 1px solid var(--border);
+                                        "
+                                    ></div>
+                                    <div
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: var(--bg-card);
+                                            border: 1px solid var(--border);
+                                        "
+                                    ></div>
+                                    <div
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: var(--bg-card);
+                                            border: 1px solid var(--border);
+                                        "
+                                    ></div>
+                                    <div
+                                        style="
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: var(--bg-card);
+                                            border: 1px solid var(--border);
+                                        "
+                                    ></div>
                                 </div>
                                 <p>WS2812B &middot; 8 LEDs &middot; GPIO2</p>
                             </div>
-                            <h3 class="mono" style="font-size:1rem;font-weight:700;color:var(--text-1);margin-bottom:12px">
+                            <h3
+                                class="mono"
+                                style="
+                                    font-size: 1rem;
+                                    font-weight: 700;
+                                    color: var(--text-1);
+                                    margin-bottom: 12px;
+                                "
+                            >
                                 WS2812B LED Strip
                             </h3>
-                            <p style="font-size:0.85rem;line-height:1.8;color:var(--text-2);margin-bottom:20px">
-                                WS2812B strip on GPIO2 via FastLED in C. Covers GRB channel ordering, PWM brightness control, and a clean PlatformIO project layout.
+                            <p
+                                style="
+                                    font-size: 0.85rem;
+                                    line-height: 1.8;
+                                    color: var(--text-2);
+                                    margin-bottom: 20px;
+                                "
+                            >
+                                WS2812B strip on GPIO2 via FastLED in C. Covers
+                                GRB channel ordering, PWM brightness control,
+                                and a clean PlatformIO project layout.
                             </p>
-                            <div style="display:flex;flex-wrap:wrap;gap:5px">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px"
+                            >
                                 <span class="tag">ESP32</span>
                                 <span class="tag">WS2812B</span>
                                 <span class="tag">FastLED</span>
@@ -452,184 +884,469 @@
                     </div>
 
                     <!-- FreeCAD -->
-                    <div class="card fade" style="padding:36px 40px">
-                        <div class="freecad-cols"
-                             style="display:grid;grid-template-columns:1fr 180px;gap:32px;align-items:start">
+                    <div class="card fade" style="padding: 36px 40px">
+                        <div
+                            class="freecad-cols"
+                            style="
+                                display: grid;
+                                grid-template-columns: 1fr 180px;
+                                gap: 32px;
+                                align-items: start;
+                            "
+                        >
                             <div>
-                                <h3 class="mono" style="font-size:1rem;font-weight:700;color:var(--text-1);margin-bottom:12px">
+                                <h3
+                                    class="mono"
+                                    style="
+                                        font-size: 1rem;
+                                        font-weight: 700;
+                                        color: var(--text-1);
+                                        margin-bottom: 12px;
+                                    "
+                                >
                                     CAD Design &amp; 3D Printing
                                 </h3>
-                                <p style="font-size:0.875rem;line-height:1.8;color:var(--text-2);margin-bottom:20px">
-                                    Parametric enclosures in FreeCAD for embedded builds. Currently modeling a housing for the GC9A01 round display. Parts export to STL for FDM printing.
+                                <p
+                                    style="
+                                        font-size: 0.875rem;
+                                        line-height: 1.8;
+                                        color: var(--text-2);
+                                        margin-bottom: 20px;
+                                    "
+                                >
+                                    Parametric enclosures in FreeCAD for
+                                    embedded builds. Currently modeling a
+                                    housing for the GC9A01 round display. Parts
+                                    export to STL for FDM printing.
                                 </p>
-                                <div style="display:flex;flex-wrap:wrap;gap:5px">
+                                <div
+                                    style="
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                        gap: 5px;
+                                    "
+                                >
                                     <span class="tag">FreeCAD</span>
                                     <span class="tag">Parametric CAD</span>
                                     <span class="tag">FDM</span>
                                     <span class="tag">STL</span>
                                 </div>
                             </div>
-                            <div class="vis" style="height:140px;padding:20px">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                                     stroke="var(--border-hi)" stroke-width="1.2">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                    <path d="M2 17l10 5 10-5"/>
-                                    <path d="M2 12l10 5 10-5"/>
+                            <div
+                                class="vis"
+                                style="height: 140px; padding: 20px"
+                            >
+                                <svg
+                                    width="32"
+                                    height="32"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--border-hi)"
+                                    stroke-width="1.2"
+                                >
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                    <path d="M2 17l10 5 10-5" />
+                                    <path d="M2 12l10 5 10-5" />
                                 </svg>
                                 <p>FreeCAD &middot; STL &middot; FDM</p>
-                                <p style="opacity:0.45">[ add render here ]</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-
         <!-- TECH STACK -->
-        <section id="stack" style="padding:120px 0;background:var(--bg-surface)">
-            <div style="max-width:1140px;margin:0 auto;padding:0 32px">
-
-                <div class="fade" style="margin-bottom:56px">
-                    <p class="label" style="margin-bottom:10px">// tools &amp; technologies</p>
-                    <h2 class="mono" style="font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--text-1)">Tech Stack</h2>
+        <section
+            id="stack"
+            style="padding: 120px 0; background: var(--bg-surface)"
+        >
+            <div style="max-width: 1140px; margin: 0 auto; padding: 0 32px">
+                <div class="fade" style="margin-bottom: 56px">
+                    <p class="label" style="margin-bottom: 10px">
+                        // tools &amp; technologies
+                    </p>
+                    <h2
+                        class="mono"
+                        style="
+                            font-size: clamp(1.5rem, 3vw, 2.1rem);
+                            font-weight: 700;
+                            color: var(--text-1);
+                        "
+                    >
+                        Tech Stack
+                    </h2>
                 </div>
 
-                <div class="stack-cols" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-
-                    <div class="card fade" style="padding:28px">
+                <div
+                    class="stack-cols"
+                    style="
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 20px;
+                    "
+                >
+                    <div class="card fade" style="padding: 28px">
                         <p class="cat-label">Hardware &amp; Prototyping</p>
-                        <div style="display:flex;flex-direction:column;gap:6px">
+                        <div
+                            style="
+                                display: flex;
+                                flex-direction: column;
+                                gap: 6px;
+                            "
+                        >
                             <div class="skill-pill">ESP32 / ESP32-C3</div>
                             <div class="skill-pill">WS2812B (NeoPixel)</div>
-                            <div class="skill-pill">GC9A01 Round SPI Display</div>
-                            <div class="skill-pill">16&times;2 I&sup2;C LCD</div>
-                            <div class="skill-pill">CC1101 Sub-GHz (315–915 MHz)</div>
+                            <div class="skill-pill">
+                                GC9A01 Round SPI Display
+                            </div>
+                            <div class="skill-pill">
+                                16&times;2 I&sup2;C LCD
+                            </div>
+                            <div class="skill-pill">
+                                CC1101 Sub-GHz (315–915 MHz)
+                            </div>
                             <div class="skill-pill">IR Receiver (TSOP)</div>
                             <div class="skill-pill">SPI / I&sup2;C / VSPI</div>
-                            <div class="skill-pill">Breadboarding &amp; Wiring</div>
+                            <div class="skill-pill">
+                                Breadboarding &amp; Wiring
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card fade" style="padding:28px">
+                    <div class="card fade" style="padding: 28px">
                         <p class="cat-label">Software &amp; Firmware</p>
-                        <div style="display:flex;flex-direction:column;gap:6px">
-                            <div class="skill-pill">C / C++ (Arduino Framework)</div>
+                        <div
+                            style="
+                                display: flex;
+                                flex-direction: column;
+                                gap: 6px;
+                            "
+                        >
+                            <div class="skill-pill">
+                                C / C++ (Arduino Framework)
+                            </div>
                             <div class="skill-pill">FastLED</div>
                             <div class="skill-pill">LovyanGFX</div>
                             <div class="skill-pill">TJpg_Decoder</div>
                             <div class="skill-pill">ArduinoJson</div>
-                            <div class="skill-pill">RadioLib / IRremoteESP8266</div>
-                            <div class="skill-pill">JavaScript / HTML / CSS</div>
-                            <div class="skill-pill">Spotify Web API + OAuth2</div>
+                            <div class="skill-pill">
+                                RadioLib / IRremoteESP8266
+                            </div>
+                            <div class="skill-pill">
+                                JavaScript / HTML / CSS
+                            </div>
+                            <div class="skill-pill">
+                                Spotify Web API + OAuth2
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card fade" style="padding:28px">
+                    <div class="card fade" style="padding: 28px">
                         <p class="cat-label">Engineering Tools</p>
-                        <div style="display:flex;flex-direction:column;gap:6px">
+                        <div
+                            style="
+                                display: flex;
+                                flex-direction: column;
+                                gap: 6px;
+                            "
+                        >
                             <div class="skill-pill">PlatformIO</div>
-                            <div class="skill-pill">FreeCAD (Parametric CAD)</div>
-                            <div class="skill-pill">3D Printing (FDM / STL)</div>
-                            <div class="skill-pill">Windows / Zed / VS Code</div>
+                            <div class="skill-pill">
+                                FreeCAD (Parametric CAD)
+                            </div>
+                            <div class="skill-pill">
+                                3D Printing (FDM / STL)
+                            </div>
+                            <div class="skill-pill">
+                                Windows / Zed / VS Code
+                            </div>
                             <div class="skill-pill">Clangd (LSP)</div>
                             <div class="skill-pill">Git &amp; GitHub</div>
-                            <div class="skill-pill">Serial Monitor / UART Debug</div>
+                            <div class="skill-pill">
+                                Serial Monitor / UART Debug
+                            </div>
                             <div class="skill-pill">Multimeter</div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-
         <!-- ABOUT -->
-        <section id="about" style="padding:120px 0">
-            <div style="max-width:1140px;margin:0 auto;padding:0 32px">
-
-                <div class="fade" style="margin-bottom:56px">
-                    <p class="label" style="margin-bottom:10px">// background</p>
-                    <h2 class="mono" style="font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--text-1)">About</h2>
+        <section id="about" style="padding: 120px 0">
+            <div style="max-width: 1140px; margin: 0 auto; padding: 0 32px">
+                <div class="fade" style="margin-bottom: 56px">
+                    <p class="label" style="margin-bottom: 10px">
+                        // background
+                    </p>
+                    <h2
+                        class="mono"
+                        style="
+                            font-size: clamp(1.5rem, 3vw, 2.1rem);
+                            font-weight: 700;
+                            color: var(--text-1);
+                        "
+                    >
+                        About
+                    </h2>
                 </div>
 
-                <div class="about-cols" style="display:grid;grid-template-columns:2fr 1fr;gap:20px">
-
-                    <div class="card fade" style="padding:36px">
-                        <p style="font-size:0.925rem;line-height:1.85;color:var(--text-2);margin-bottom:18px">
-                            High school student in San Jose. I work hardware-first — pick a microcontroller, wire it up, write the firmware, then handle the software side as the project requires.
+                <div
+                    class="about-cols"
+                    style="
+                        display: grid;
+                        grid-template-columns: 2fr 1fr;
+                        gap: 20px;
+                    "
+                >
+                    <div class="card fade" style="padding: 36px">
+                        <p
+                            style="
+                                font-size: 0.925rem;
+                                line-height: 1.85;
+                                color: var(--text-2);
+                                margin-bottom: 18px;
+                            "
+                        >
+                            High school student in San Jose. I work
+                            hardware-first — pick a microcontroller, wire it up,
+                            write the firmware, then handle the software side as
+                            the project requires.
                         </p>
-                        <p style="font-size:0.925rem;line-height:1.85;color:var(--text-2);margin-bottom:18px">
-                            Day-to-day: ESP32 with PlatformIO and the Arduino framework in C/C++ on Windows, editing in Zed or VS Code. Enclosures go in FreeCAD.
+                        <p
+                            style="
+                                font-size: 0.925rem;
+                                line-height: 1.85;
+                                color: var(--text-2);
+                                margin-bottom: 18px;
+                            "
+                        >
+                            Day-to-day: ESP32 with PlatformIO and the Arduino
+                            framework in C/C++ on Windows, editing in Zed or VS
+                            Code. Enclosures go in FreeCAD.
                         </p>
-                        <p style="font-size:0.925rem;line-height:1.85;color:var(--text-2)">
-                            Open to robotics clubs, engineering internships, and open-source hardware projects.
+                        <p
+                            style="
+                                font-size: 0.925rem;
+                                line-height: 1.85;
+                                color: var(--text-2);
+                            "
+                        >
+                            Open to robotics clubs, engineering internships, and
+                            open-source hardware projects.
                         </p>
                     </div>
 
-                    <div class="card fade" style="padding:28px">
-                        <p class="mono" style="font-size:0.63rem;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px">
+                    <div class="card fade" style="padding: 28px">
+                        <p
+                            class="mono"
+                            style="
+                                font-size: 0.63rem;
+                                color: var(--text-3);
+                                letter-spacing: 0.12em;
+                                text-transform: uppercase;
+                                margin-bottom: 18px;
+                            "
+                        >
                             Outside of builds
                         </p>
                         <div class="int-row">
-                            <span style="font-size:1rem;flex-shrink:0;width:22px;text-align:center">🚵</span>
+                            <span
+                                style="
+                                    font-size: 1rem;
+                                    flex-shrink: 0;
+                                    width: 22px;
+                                    text-align: center;
+                                "
+                                >🚵</span
+                            >
                             <div>
-                                <p style="font-size:0.875rem;color:var(--text-1);font-weight:500">Mountain Biking</p>
-                                <p style="font-size:0.74rem;color:var(--text-3);margin-top:2px">Bay Area trails</p>
+                                <p
+                                    style="
+                                        font-size: 0.875rem;
+                                        color: var(--text-1);
+                                        font-weight: 500;
+                                    "
+                                >
+                                    Mountain Biking
+                                </p>
+                                <p
+                                    style="
+                                        font-size: 0.74rem;
+                                        color: var(--text-3);
+                                        margin-top: 2px;
+                                    "
+                                >
+                                    Bay Area trails
+                                </p>
                             </div>
                         </div>
                         <div class="int-row">
-                            <span style="font-size:1rem;flex-shrink:0;width:22px;text-align:center">🎸</span>
+                            <span
+                                style="
+                                    font-size: 1rem;
+                                    flex-shrink: 0;
+                                    width: 22px;
+                                    text-align: center;
+                                "
+                                >🎸</span
+                            >
                             <div>
-                                <p style="font-size:0.875rem;color:var(--text-1);font-weight:500">Guitar</p>
-                                <p style="font-size:0.74rem;color:var(--text-3);margin-top:2px">Since middle school</p>
+                                <p
+                                    style="
+                                        font-size: 0.875rem;
+                                        color: var(--text-1);
+                                        font-weight: 500;
+                                    "
+                                >
+                                    Guitar
+                                </p>
+                                <p
+                                    style="
+                                        font-size: 0.74rem;
+                                        color: var(--text-3);
+                                        margin-top: 2px;
+                                    "
+                                >
+                                    Since middle school
+                                </p>
                             </div>
                         </div>
                         <div class="int-row">
-                            <span style="font-size:1rem;flex-shrink:0;width:22px;text-align:center">🎬</span>
+                            <span
+                                style="
+                                    font-size: 1rem;
+                                    flex-shrink: 0;
+                                    width: 22px;
+                                    text-align: center;
+                                "
+                                >🎬</span
+                            >
                             <div>
-                                <p style="font-size:0.875rem;color:var(--text-1);font-weight:500">Video Editing</p>
-                                <p style="font-size:0.74rem;color:var(--text-3);margin-top:2px">Bikes, builds, projects</p>
+                                <p
+                                    style="
+                                        font-size: 0.875rem;
+                                        color: var(--text-1);
+                                        font-weight: 500;
+                                    "
+                                >
+                                    Video Editing
+                                </p>
+                                <p
+                                    style="
+                                        font-size: 0.74rem;
+                                        color: var(--text-3);
+                                        margin-top: 2px;
+                                    "
+                                >
+                                    Bikes, builds, projects
+                                </p>
                             </div>
                         </div>
                         <div class="int-row">
-                            <span style="font-size:1rem;flex-shrink:0;width:22px;text-align:center">🖥️</span>
+                            <span
+                                style="
+                                    font-size: 1rem;
+                                    flex-shrink: 0;
+                                    width: 22px;
+                                    text-align: center;
+                                "
+                                >🖥️</span
+                            >
                             <div>
-                                <p style="font-size:0.875rem;color:var(--text-1);font-weight:500">PC Hardware</p>
-                                <p style="font-size:0.74rem;color:var(--text-3);margin-top:2px">Building &amp; tweaking</p>
+                                <p
+                                    style="
+                                        font-size: 0.875rem;
+                                        color: var(--text-1);
+                                        font-weight: 500;
+                                    "
+                                >
+                                    PC Hardware
+                                </p>
+                                <p
+                                    style="
+                                        font-size: 0.74rem;
+                                        color: var(--text-3);
+                                        margin-top: 2px;
+                                    "
+                                >
+                                    Building &amp; tweaking
+                                </p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-
         <!-- CONTACT -->
-        <section id="contact" style="padding:120px 0;border-top:1px solid var(--border)">
-            <div style="max-width:1140px;margin:0 auto;padding:0 32px">
-                <div class="fade" style="max-width:480px">
-                    <p class="label" style="margin-bottom:10px">// get in touch</p>
-                    <h2 class="mono"
-                        style="font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--text-1);margin-bottom:16px">
+        <section
+            id="contact"
+            style="padding: 120px 0; border-top: 1px solid var(--border)"
+        >
+            <div style="max-width: 1140px; margin: 0 auto; padding: 0 32px">
+                <div class="fade" style="max-width: 480px">
+                    <p class="label" style="margin-bottom: 10px">
+                        // get in touch
+                    </p>
+                    <h2
+                        class="mono"
+                        style="
+                            font-size: clamp(1.5rem, 3vw, 2.1rem);
+                            font-weight: 700;
+                            color: var(--text-1);
+                            margin-bottom: 16px;
+                        "
+                    >
                         Let's talk.
                     </h2>
-                    <p style="font-size:0.925rem;line-height:1.8;color:var(--text-2);margin-bottom:32px">
-                        Open to internships, robotics teams, and hardware open-source projects.
+                    <p
+                        style="
+                            font-size: 0.925rem;
+                            line-height: 1.8;
+                            color: var(--text-2);
+                            margin-bottom: 32px;
+                        "
+                    >
+                        Open to internships, robotics teams, and hardware
+                        open-source projects.
                     </p>
-                    <div style="display:flex;flex-wrap:wrap;gap:12px">
-                        <a href="https://github.com/skornuta" target="_blank" rel="noopener" class="btn-primary">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px">
+                        <a
+                            href="https://github.com/skornuta"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn-primary"
+                        >
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path
+                                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+                                />
                             </svg>
                             github.com/skornuta
                         </a>
-                        <a href="mailto:kornutastanislaw@gmail.com" class="btn-ghost">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
+                        <a
+                            href="mailto:kornutastanislaw@gmail.com"
+                            class="btn-ghost"
+                        >
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <path
+                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                />
+                                <polyline points="22,6 12,13 2,6" />
                             </svg>
                             Email
                         </a>
@@ -638,26 +1355,52 @@
             </div>
         </section>
 
-
         <!-- FOOTER -->
-        <footer style="border-top:1px solid var(--border);padding:24px 0">
-            <div style="max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-                <span class="mono" style="font-size:0.7rem;color:var(--text-3)">© 2026 Stas Kornuta &middot; San Jose, CA</span>
-                <a href="https://github.com/skornuta" target="_blank" rel="noopener"
-                   class="mono"
-                   style="font-size:0.7rem;color:var(--text-3);text-decoration:none;transition:color 0.12s"
-                   onmouseover="this.style.color='var(--text-2)'"
-                   onmouseout="this.style.color='var(--text-3)'">github.com/skornuta</a>
+        <footer style="border-top: 1px solid var(--border); padding: 24px 0">
+            <div
+                style="
+                    max-width: 1140px;
+                    margin: 0 auto;
+                    padding: 0 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                "
+            >
+                <span
+                    class="mono"
+                    style="font-size: 0.7rem; color: var(--text-3)"
+                    >© 2026 Stas Kornuta &middot; San Jose, CA</span
+                >
+                <a
+                    href="https://github.com/skornuta"
+                    target="_blank"
+                    rel="noopener"
+                    class="mono"
+                    style="
+                        font-size: 0.7rem;
+                        color: var(--text-3);
+                        text-decoration: none;
+                        transition: color 0.12s;
+                    "
+                    onmouseover="this.style.color = 'var(--text-2)'"
+                    onmouseout="this.style.color = 'var(--text-3)'"
+                    >github.com/skornuta</a
+                >
             </div>
         </footer>
 
-
         <script>
             const io = new IntersectionObserver(
-                es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("on"); }),
-                { threshold: 0.07, rootMargin: "0px 0px -28px 0px" }
+                (es) =>
+                    es.forEach((e) => {
+                        if (e.isIntersecting) e.target.classList.add("on");
+                    }),
+                { threshold: 0.07, rootMargin: "0px 0px -28px 0px" },
             );
-            document.querySelectorAll(".fade").forEach(el => io.observe(el));
+            document.querySelectorAll(".fade").forEach((el) => io.observe(el));
         </script>
     </body>
 </html>
